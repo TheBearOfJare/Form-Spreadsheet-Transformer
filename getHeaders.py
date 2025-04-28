@@ -16,7 +16,7 @@ def getHeaders(fileName, sheetName):
         if cell.value == "Requirement - Would you like to enter another response?":
             break
 
-        header = cell.column_letter
+        header = ""
 
         # put in assumed headers
         if "GEG" in cell.value:
@@ -38,6 +38,10 @@ def getHeaders(fileName, sheetName):
         elif "Email" in cell.value:
             header = "Email"
         
+        if header == "":
+            # print(cell.value)
+            continue
+
         headers += "\t\"" + cell.value + "\": \"" + header + "\",\n"
 
 
