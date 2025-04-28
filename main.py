@@ -135,8 +135,8 @@ def prettyify(wb, sheetName):
     for i, column_width in enumerate(column_widths,1):  # ,1 to start at 1
         sheet.column_dimensions[get_column_letter(i)].width = min(column_width//1.4 + 5, 40)
 
-    # set all rows to have a height of 20
-    for row in sheet.iter_rows():
+    # set all rows, except the first, to have a height of 40
+    for row in sheet.iter_rows(min_row=2):
         sheet.row_dimensions[row[0].row].height = 40
 
     # set everything to use Consolas Mono
