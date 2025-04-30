@@ -122,6 +122,7 @@ def prettyify(wb, sheetName):
     sheet = wb[sheetName]
 
     data = sheet.values
+
     # resize the columns by making the widths of the columns be relative to the content (shamelessly stolen from stack overflow and modified to fit this project)
     column_widths = []
     for row in data:
@@ -155,7 +156,7 @@ def prettyify(wb, sheetName):
                 # Create the hyperlink formula
                 hyperlink = f'=HYPERLINK("mailto:{cell.value}", "{cell.value}")'
                 cell.value = hyperlink
-                # Apply a font style to indicate it's a link (optional)
+                # Apply a font style to indicate it's a link
                 cell.font = Font(color="0563C1", underline="single")
 
     return wb
@@ -168,7 +169,7 @@ def main(fileName, sheetName):
     # get the sheet
     sheet = getSheet(fileName, sheetName)
 
-    # headers is a list of all the headers in the spreadsheet, data is a list of dictionarys, where each outer list is a row in the spreadsheet, and the dictionary is the relationship between the headers and the data
+    # headers is a list of all the headers in the transformed spreadsheet, data is a list of dictionarys, where each outer list is a row in the spreadsheet, and the dictionary is the relationship between the headers and the data
     headers = ["First Name", "Last Name", "Email", "Requirement", "Course", "Goal", "Assessment Type", "Met", "Not Met"]
     data = transform(sheet=sheet, headers=headers)
     
@@ -206,4 +207,4 @@ def main(fileName, sheetName):
 
 if __name__ == "__main__":
 
-    main("test.xlsx", "Raw")
+    main("Qualtrics.xlsx", "Raw")
