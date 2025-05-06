@@ -85,6 +85,11 @@ def transform(sheet, headers):
                 i += 1
                 continue
 
+            # if the cell is "other", skip it because there will be a "please describe" cell that contains the data that we actually want.
+            if "other" in cell.lower():
+                i += 1
+                continue
+
             # get the header for the cell with getDataHeader() and the value of the cell in row 2 in cell's column
             label = sheet.cell(row=2, column=i).value
             header = getDataHeader(label)
@@ -207,4 +212,4 @@ def main(fileName, sheetName):
 
 if __name__ == "__main__":
 
-    main("Qualtrics.xlsx", "Raw")
+    main("test.xlsx", "Raw")
