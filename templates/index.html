@@ -1,4 +1,22 @@
-<form action="" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" accept=".xlsx">
-    <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Convert Qualtrics Data</title>
+
+</head>
+<body>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class = "file">
+            <input type="file" name="file" accept=".xlsx">
+            <label for="file">Click to Choose File</label>
+        </div>
+        <input class = "submit" type="submit" value="Submit">
+    </form>
+    
+</body>
+<script src="{{ url_for('static', filename='tools.js') }}"></script>
+</html>

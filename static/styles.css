@@ -1,0 +1,29 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* big boy button for choosing files */
+.file {
+    background-color: #4c0d0d; /* Green */
+    border: 3px solid black;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    margin-left: 5%;
+    cursor: pointer;
+    width: 90%;
+    height: 90vh;
+    border-radius: 10px;
+}
+
+input {
+    display: none;
+}
+
+label {
+    font-size: 10vh;
+}
